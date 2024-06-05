@@ -43,6 +43,8 @@ INSTALLED_APPS = [
 
     'main',
     'goods',
+    'users',
+
 
 
 
@@ -65,7 +67,7 @@ ROOT_URLCONF = 'theSite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [ BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -152,3 +154,4 @@ INTERNAL_IPS = [
     "127.0.0.1",
     # ...
 ]
+AUTH_USER_MODEL = 'users.USER'

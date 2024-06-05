@@ -1,4 +1,4 @@
-{% extends "main/base.html" %}
+{% extends "base.html" %}
 {% load static %}
 {% load goods_tags %}
 {% block content %}
@@ -46,7 +46,7 @@
                             </form>
                         </div>
                         {% if request.GET.q %}
-                        <h3 class="mt-4">Результат поика по запросу {{ request.GET.q }}</h3>
+                        <h3 class="mt-4">Результат поиска по запросу {{ request.GET.q }}</h3>
                         {% if not goods %}
                         <link rel="stylesheet" href={% static "deps/css/my_footer_css.css" %}>
                         <h2 class="mt-4">По запросу ничего не найдено</h2>

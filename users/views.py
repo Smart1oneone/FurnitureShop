@@ -12,9 +12,13 @@ def login(request):
             username = request.POST['username']
             password = request.POST['password']
             user = auth.authenticate(username=username, password=password)
-            messages.success(request, f" {username}, Вы вошли в аккаунт")
             if user:
+                messages.success(request, f" {username}, Вы вошли в аккаунт")
                 auth.login(request, user)
+                redirect_page = request.POST.get('next', None)
+                if redirect_page and redirect_page != reverse('user:logout')
+                    return HttpResponseRedirect(request.POST.get('next'))
+
                 return HttpResponseRedirect(reverse('main:index'))
     else:
         form = UserLoginForm()
@@ -33,6 +37,7 @@ def registration(request):
             user = form.instance
             auth.login(request, user)
             messages.success(request, f" {user.username}, Вы вошли в аккаунт")
+
             return HttpResponseRedirect(reverse('main:index'))
     else:
         form = UserRegistrationForm()
@@ -48,6 +53,7 @@ def profile(request):
         if form.is_valid():
             form.save()
             messages.success(request, f" Профайл успешно обновлен")
+
             return HttpResponseRedirect(reverse('user:profile'))
     else:
         form = UserProfileForm(instance=request.user)
@@ -63,3 +69,5 @@ def logout(request):
     auth.logout(request)
 
     return redirect(reverse('main:index'))
+def users_cart(request):
+    return render(request, 'users/users_cart.html')

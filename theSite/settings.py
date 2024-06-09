@@ -38,16 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.postgres',
-
     'debug_toolbar',
-
     'main',
     'goods',
     'users',
-
-
-
-
+    'carts',
 ]
 
 MIDDLEWARE = [
@@ -154,4 +149,5 @@ INTERNAL_IPS = [
     "127.0.0.1",
     # ...
 ]
-AUTH_USER_MODEL = 'users.USER'
+AUTH_USER_MODEL = "users.User"
+LOGIN_URL = '/user/login/'

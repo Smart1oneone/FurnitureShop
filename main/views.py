@@ -13,6 +13,6 @@ def about(request):
     context = {
         'title': 'Home - О нас',
         'content': 'О нас',
-        'text_on_page': 'Текс о том почему этот магазин хороший',
+        'text_on_page': 'Текст о том почему этот магазин хороший',
     }
     return render(request, 'main/about.html', context)

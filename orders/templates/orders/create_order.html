@@ -36,7 +36,7 @@
                                             <div class="col-md-6 mb-3">
                                                 <label for="id_last_name" class="form-label">Фамилия*:</label>
                                                 <input type="text" class="form-control" id="id_last_name" name="last_name"
-                                                       value="{% if form.last_name.value %}{{ form.first_name.value }}{% endif %}"
+                                                       value="{% if form.last_name.value %}{{ form.last_name.value }}{% endif %}"
                                                        required>
                                                 {% if form.last_name.errors %}
                                                 <div class="alert alert-danger alert-dismissable fade show">{{ form.last_name.errors }}
@@ -50,8 +50,8 @@
                                                        value="{% if form.phone_number.value %}{{ form.phone_number.value }}{% endif %}"
                                                     placeholder="В формате: XXX-XXX-XX-XX"
                                                     required>
-                                                {% if form.last_name.errors %}
-                                                <div class="alert alert-danger alert-dismissable fade show">{{ form.last_name.errors }}
+                                                {% if form.phone_number.errors %}
+                                                <div class="alert alert-danger alert-dismissable fade show">{{ form.phone_number.errors }}
                                                 </div>
 
                                                 {% endif %}
@@ -89,6 +89,11 @@
                                                         id="id_payment_on_get" value="0" checked>
                                                     <label class="form-check-label" for="id_payment_on_get">Оплата
                                                         картой</label>
+                                                    {% if form.payment_on_get.errors %}
+                                                <div class="alert alert-danger alert-dismissable fade show">{{ form.payment_on_get.errors }}
+                                                </div>
+
+                                                {% endif %}
                                                 </div>
                                                 <div class="form-check form-check-inline">
                                                     <input class="form-check-input" type="radio" name="payment_on_get"

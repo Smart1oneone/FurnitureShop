@@ -5,6 +5,8 @@ from orders.forms import CreateOrderForm
 from orders.models import Order, OrderItem
 from django.db import transaction
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+@login_required
 def create_order(request):
 
     if request.method == 'POST':
